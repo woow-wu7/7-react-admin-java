@@ -2,6 +2,7 @@ package com.example.demo.mapper;
 
 import com.example.demo.model.MusicModel;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -12,6 +13,9 @@ import java.util.List;
 @Mapper
 public interface MusicMapper {
 
-    @Select("select * from music")
-    public List<MusicModel> getMusics();
+    @Select("SELECT * from music limit #{offset},#{pageSize}")
+    public List<MusicModel> selectMusics(Integer pageSize, Integer offset);
+
+    @Select("SELECT * from music")
+    public List<MusicModel> selectAllMusics();
 }

@@ -1,7 +1,10 @@
 package com.example.demo.model;
 
+import lombok.Data;
+
 // model
 // model 专门用来做数据库相关的模型对象
+@Data
 public class MusicModel {
     private Integer id;
     private String name;
