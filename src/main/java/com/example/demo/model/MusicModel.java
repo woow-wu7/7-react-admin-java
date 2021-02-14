@@ -6,12 +6,12 @@ import lombok.Data;
 // model 专门用来做数据库相关的模型对象
 @Data
 public class MusicModel {
-    private Integer id;
-    private String name;
-    private String album;
-    private String singer;
-    private String endTime;
-    private String startTime;
+    public Integer id;
+    public String name;
+    public String album;
+    public String singer;
+    public String startTime;
+    public String endTime;
 
     public Integer getId() {
         return id;
