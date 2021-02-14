@@ -20,26 +20,45 @@ public class MusicController {
     @GetMapping("/musics")
     public PaginationDTO getMusics(
             @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize,
-            @RequestParam(name = "current", defaultValue = "1") Integer current
+            @RequestParam(name = "current", defaultValue = "1") Integer current,
+            @RequestParam(name = "searchKey", required = false) String searchKey
     ) {
-        PaginationDTO musics = musicService.list(pageSize, current);
+        PaginationDTO musics = musicService.list(pageSize, current, searchKey);
         System.out.println(musics);
         return musics;
     }
 
     // 新增
-    @PostMapping("/musics")
+    @PostMapping("/musics/add")
     public Map<String, Object> addMusics(
             @RequestBody Map<String, Object> body
     ) {
-        System.out.println(body);
         String name = (String) body.get("name");
         String album = (String) body.get("album");
         String singer = (String) body.get("singer");
         Boolean isSuccess = musicService.add(name, album, singer);
-        body.put("isSuccess", isSuccess); // 是否插入成功
+        body.put("isSuccess", isSuccess); // 是否成功
+        return body;
+    }
+
+    // 修改
+    @PostMapping("/musics/edit")
+    public Map<String, Object> editMusics(
+            @RequestBody Map<String, Object> body
+    ) {
+        Boolean isSuccess = musicService.edit(body);
+        body.put("isSuccess", isSuccess); // 是否成功
         return body;
     }
 
     // 删除
+    @PostMapping("/musics/delete")
+    public Map<String, Object> deleteMusics(
+            @RequestBody Map<String, Object> body
+    ) {
+        int id = (int) body.get("id");
+        Boolean isSuccess = musicService.delete(id);
+        body.put("isSuccess", isSuccess); // 是否成功
+        return body;
+    }
 }
