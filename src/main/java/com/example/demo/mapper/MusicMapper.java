@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.*;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 // mapper
 // 1. mapper文件夹主要是用来映射数据库的相关操作

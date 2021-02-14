@@ -5,12 +5,9 @@ package com.example.demo.service;
 import com.example.demo.dto.PaginationDTO;
 import com.example.demo.mapper.MusicMapper;
 import com.example.demo.model.MusicModel;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -70,8 +67,8 @@ public class MusicService {
         String name = (String) body.get("name");
         String album = (String) body.get("album");
         String singer = (String) body.get("singer");
-        Timestamp startTime = Timestamp.valueOf((String) body.get("startTime"));
-        Timestamp endTime = Timestamp.valueOf((String) body.get("endTime"));
+        Timestamp startTime = Timestamp.valueOf((String) body.get("startTime")); // ( Timestamp ) 类型对应的是数据库中的 ( datetime ) 类型
+        Timestamp endTime = Timestamp.valueOf((String) body.get("endTime")); // Timestamp.valueOf(string v) 将string转成timestamp
         int status = musicMapper.editMusic(name, album, singer, startTime, endTime, id);
         Boolean aBoolean = judgeIsSuccess(status);
         return aBoolean;
@@ -83,6 +80,4 @@ public class MusicService {
         Boolean aBoolean = judgeIsSuccess(status);
         return aBoolean;
     }
-
-
 }
