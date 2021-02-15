@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.PaginationDTO;
 import com.example.demo.service.MusicService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -15,6 +16,9 @@ public class MusicController {
     @Autowired
     MusicService musicService;
 
+    @Value("${TX_YUN_IP}")
+    private String tx_yun_ip;
+
     // 列表
     // @RequestMapping(value="/musics", method = {RequestMethod.GET})
     @GetMapping("/musics")
@@ -23,8 +27,8 @@ public class MusicController {
             @RequestParam(name = "current", defaultValue = "1") Integer current,
             @RequestParam(name = "searchKey", required = false) String searchKey
     ) {
+        System.out.println(tx_yun_ip);
         PaginationDTO musics = musicService.list(pageSize, current, searchKey);
-        System.out.println(musics);
         return musics;
     }
 
