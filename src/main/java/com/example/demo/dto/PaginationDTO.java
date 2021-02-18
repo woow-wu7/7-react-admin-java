@@ -5,6 +5,8 @@ import lombok.Data;
 
 import java.util.List;
 
+// @Data是lombok的注解
+// @Data会自动生成 @Getter @Setter @ToString @EqualsAndHashCode @RequiredArgsConstructor
 @Data
 public class PaginationDTO {
     public List<MusicModel> musics;

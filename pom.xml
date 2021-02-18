@@ -61,6 +61,15 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- lombok -->
+		<!-- 主要用于自动生成DTO,MODEL，bean对象等的 @Getter @Setter @ToString @EqualsAndHashCode @RequiredArgsConstructor-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.16</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- fastjson 用于参数类型转换 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
