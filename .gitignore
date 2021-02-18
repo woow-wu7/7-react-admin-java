@@ -34,3 +34,6 @@ build/
 
 ### 7-react-admin.log
 7-react-admin-java.log
+
+### logs
+/logs
