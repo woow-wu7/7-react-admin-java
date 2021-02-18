@@ -5,6 +5,7 @@ package com.example.demo.service;
 import com.example.demo.dto.PaginationDTO;
 import com.example.demo.mapper.MusicMapper;
 import com.example.demo.model.MusicModel;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ import java.util.Map;
 // 2. server 是连接 controller 和 mapper(DAO) 的桥梁
 
 @Service
+@Slf4j
 public class MusicService {
 
     @Autowired
@@ -27,9 +29,11 @@ public class MusicService {
     private Boolean judgeIsSuccess(int status) {
         if (status > 0) {
             System.out.println("操作成功");
+            log.info("操作成功");
             return true;
         } else {
             System.out.println("操作失败");
+            log.error("操作失败");
             return false;
         }
     }
