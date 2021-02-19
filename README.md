@@ -8,6 +8,7 @@
 ## (2) 项目过程记录
 - [[前端学java01-SpringBoot实战] 环境配置和HelloWorld服务](https://juejin.cn/post/6927306093970325517)
 - [[前端学java02-SpringBoot实战] mybatis + mysql 实现歌曲增删改查](https://juejin.cn/post/6929145638898794503)
+- [[前端学java03-SpringBoot实战] lombok，日志，部署](https://juejin.cn/post/6930627377101979662)
 
 ## (2) controller层，server层，mapper层，之间的关系
 - controller

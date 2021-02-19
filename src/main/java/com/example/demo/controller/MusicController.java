@@ -11,6 +11,7 @@ import java.util.Map;
 //@Controller
 //@ResponseBody
 @RestController // 是上面两个注解的合集
+@CrossOrigin
 public class MusicController {
 
     @Autowired
