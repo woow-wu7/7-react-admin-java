@@ -1,0 +1,24 @@
+# (1)
+# application.yml 和 application.properties 的区别
+# 1. 程序会先读取 .yml 再读取 .properties
+# 2. 配置相同：.properties 会覆盖 .yml 的配置
+# 3. 配置不同：两个都会生效
+# 4. 结论：从优先级来说 application.properties > application.yml
+# 问题：这里 port=7776，在 application.properties 中设置的 port=7777 到底谁会生效呢？
+# 答案：7777生效
+
+server:
+  port: 7776
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/7-react-admin-java?serverTimezone=GMT%2B8&useSSL=false
+    username: root
+    password: root
+    dirver-class-name: com.mysql.cj.jdbc.Driver
+
+# 配置 mybatis 规则
+# 默认的前置路径就是 resources 文件夹中
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml # mybatis全局配置文件
+  mapper-locations: classpath:mybatis/mapper/*.xml # mybatis的sql映射文件，注意是 mapper-locations，有s

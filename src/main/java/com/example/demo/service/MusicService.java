@@ -8,6 +8,7 @@ import com.example.demo.model.MusicModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -57,6 +58,7 @@ public class MusicService {
     }
 
     // 新增
+    @Transactional
     public Boolean add(String name, String album, String singer) {
         Date startTime = new Date(); // 注意：数据库中的data是 ( datetime ) 格式
         Date endTime = new Date();

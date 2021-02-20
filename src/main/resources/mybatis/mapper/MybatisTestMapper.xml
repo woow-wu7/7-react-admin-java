@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.MybatisTestMapper">
+    <!-- public MybatisTestBean getMybatisTest(int id); -->
+    <!-- id 是方法名 -->
+    <!-- resultType 是方法的返回值类型，通过 copy path => copy reference 可以快速生成 -->
+    <select id="getMybatisTest" resultType="com.example.demo.bean.MybatisTestBean">
+        select * from mybatis_test where id=#{id}
+    </select>
+</mapper>
