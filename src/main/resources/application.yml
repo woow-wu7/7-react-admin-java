@@ -16,9 +16,22 @@ spring:
     username: root
     password: root
     dirver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    # 静态资源前缀
+    # 值得注意的是前缀会导致 welcome静态文件夹的index.html失效
+    # static-path-pattern: "/resources/**" # 增加静态资源前缀 resources
+    static-path-pattern: "/**"
+  # resources:
+    # 指定子自定义的静态资源文件夹 ( 默认的静态资源文件夹路径 )
+    # 1.
+    # 当指定了 ( 前缀resources )，同时又指定了 ( 静态资源自定义的目录7resources )
+    # 访问：http://localhost:7777/resources/7.jpg 就可以访问到静态资源
+    # static-locations: [classpath:/7resources/]
 
-# 配置 mybatis 规则
-# 默认的前置路径就是 resources 文件夹中
+
 mybatis:
+  # 配置 mybatis 规则
+  # 默认的前置路径就是 resources 文件夹中
   config-location: classpath:mybatis/mybatis-config.xml # mybatis全局配置文件
   mapper-locations: classpath:mybatis/mapper/*.xml # mybatis的sql映射文件，注意是 mapper-locations，有s
+

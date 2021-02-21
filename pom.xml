@@ -39,7 +39,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- jdbc依赖 -->
+		<!-- jdbc依赖，(Java Database Connectivity) java数据连接 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
@@ -87,10 +87,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
 		</dependency>
 	</dependencies>
 
