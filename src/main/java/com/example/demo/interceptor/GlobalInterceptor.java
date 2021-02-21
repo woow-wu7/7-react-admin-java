@@ -21,6 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Slf4j
 public class GlobalInterceptor implements HandlerInterceptor {
+
+    // 目标方法执行之前执行
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.info("preHandle拦截器 - 拦截的路径是{}", request.getRequestURI());
@@ -28,13 +30,17 @@ public class GlobalInterceptor implements HandlerInterceptor {
         // return false; // false表示不放行
     }
 
+    // 目标方法执行完成之后执行
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         log.info("postHandle拦截器 - ModelAndView", modelAndView);
     }
 
+    // 页面渲染以后执行
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        // completion 是完成的意思
+        // override 是覆盖 重写的意思
         log.info("afterCompletion拦截器", ex);
     }
 }

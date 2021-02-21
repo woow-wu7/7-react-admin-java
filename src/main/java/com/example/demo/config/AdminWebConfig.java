@@ -9,9 +9,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * 拦截器
  * 1. 编写一个拦截器，实现 HandlerInterceptor 接口
- * 2. 把拦截器注册到容器中 ( 实现 WebMvcConfigurer 的  addInterceptors 方法)
+ * 2. 把拦截器注册到容器中 ( 实现 WebMvcConfigurer 接口的  addInterceptors 方法)
  * 3. 指定拦截规则 【如果拦截所有，静态资源也会被拦截，可以用 excludePathPatterns 方法放行】
  */
+// @Configuration 用于定义配置类
 @Configuration
 public class AdminWebConfig implements WebMvcConfigurer {
 
