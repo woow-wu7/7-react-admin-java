@@ -39,7 +39,14 @@ mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml # mybatis的sql映射文件，注意是 mapper-locations，有s
 
 thymeleaf:
+  # 配置 src/main/resources/templates/xxx.html 中的 html文件
   cache: false
   mode: LEGACYHTML5
   prefix: classpath:/templates/
   suffix: .html
+
+myapp:
+  # 自定义的配置参数，这里主要用来验证 @ConfigurationProperties 注解的使用
+  author: woow_wu7
+  name: react-admin-java
+  email: woow.wu7@gmail.com

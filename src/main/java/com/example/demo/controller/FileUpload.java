@@ -56,6 +56,7 @@ public class FileUpload {
     // 注意点
     // 1. consumes 一定要设置成 "multipart/form-data" 因为前端 antd 中的 Upload 组件是用的 form-data 方式在上传
     // 2. 前端上传时 Upload 组件一定要设置 name 属性，因为 name 的值是和这里的 @RequestPart("前端name属性的值") 一一对应
+    // 3. consume 是消费的意思
     @PostMapping(value = "/frontendUpload", consumes = "multipart/form-data")
     public String frontendUpload(
             // @RequestParam("file") MultipartFile avatars

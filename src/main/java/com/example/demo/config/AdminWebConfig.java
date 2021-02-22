@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import com.example.demo.interceptor.GlobalInterceptor;
 import com.example.demo.interceptor.LoginInterceptor;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -12,8 +13,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * 2. 把拦截器注册到容器中 ( 实现 WebMvcConfigurer 接口的  addInterceptors 方法)
  * 3. 指定拦截规则 【如果拦截所有，静态资源也会被拦截，可以用 excludePathPatterns 方法放行】
  */
-// @Configuration 用于定义配置类
+// @Configuration 用于定义 ( 配置类 )
 @Configuration
+@EnableConfigurationProperties
 public class AdminWebConfig implements WebMvcConfigurer {
 
     // @Override表示被标注的方法是一个重写方法
