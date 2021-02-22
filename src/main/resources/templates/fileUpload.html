@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--注意：xmls:th 的值-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>测试页面</div>
+    <!-- th:action="@{/upload}" -->
+    <!-- enctype="multipart/form-data" -->
+    <form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+        <div>
+            <span>单头像上传</span>
+            <input type="file" name="single">
+        </div>
+        <div>
+            <span>多头像上传</span>
+            <!-- multiple表示开启多个上传 -->
+            <input type="file" name="multiple" multiple>
+        </div>
+        <button type="submit">上传</button>
+    </form>
+</body>
+</html>

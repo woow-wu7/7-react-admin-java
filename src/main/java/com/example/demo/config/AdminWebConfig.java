@@ -16,6 +16,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class AdminWebConfig implements WebMvcConfigurer {
 
+    // @Override表示被标注的方法是一个重写方法
+    // override 覆盖
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new GlobalInterceptor())

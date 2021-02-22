@@ -25,9 +25,17 @@
 		</dependency>
 
 		<!-- spring-boot-starter-web -->
+		<!-- web场景启动器 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- spring-boot-starter-thymeleaf -->
+		<!-- 主要用于显示resources/templates中的html -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
 		<!-- mysql -->

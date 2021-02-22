@@ -27,7 +27,10 @@ spring:
     # 当指定了 ( 前缀resources )，同时又指定了 ( 静态资源自定义的目录7resources )
     # 访问：http://localhost:7777/resources/7.jpg 就可以访问到静态资源
     # static-locations: [classpath:/7resources/]
-
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
 
 mybatis:
   # 配置 mybatis 规则
@@ -35,3 +38,8 @@ mybatis:
   config-location: classpath:mybatis/mybatis-config.xml # mybatis全局配置文件
   mapper-locations: classpath:mybatis/mapper/*.xml # mybatis的sql映射文件，注意是 mapper-locations，有s
 
+thymeleaf:
+  cache: false
+  mode: LEGACYHTML5
+  prefix: classpath:/templates/
+  suffix: .html

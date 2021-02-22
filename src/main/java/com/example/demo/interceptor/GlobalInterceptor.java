@@ -27,7 +27,7 @@ public class GlobalInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.info("preHandle拦截器 - 拦截的路径是{}", request.getRequestURI());
         return true; // true表示放行
-        // return false; // false表示不放行
+        // return false; // false表示拦截不放行
     }
 
     // 目标方法执行完成之后执行
