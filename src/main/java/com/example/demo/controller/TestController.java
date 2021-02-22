@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.bean.AppMessageBean;
+import com.example.demo.bean.ValueTestBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,9 @@ public class TestController {
     @Autowired
     AppMessageBean appMessageBean;
 
+    @Autowired
+    ValueTestBean valueTestBean;
+
     // (1)
     // 测试： @ConfigurationProperties 和 @Component 两个注解
     // 教程： https://www.cnblogs.com/jimoer/p/11374229.html
@@ -23,4 +27,14 @@ public class TestController {
         System.out.println(author);
         return  appMessageBean;
     }
+
+    @GetMapping("/@Value")
+    public ValueTestBean getValueAuthorName() {
+        System.out.println(valueTestBean);
+        String author = valueTestBean.getAuthor();
+        System.out.println(author);
+        return valueTestBean;
+    }
 }
+
+
