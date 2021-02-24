@@ -14,9 +14,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>7-react-admin-java</name>
 	<description>7-react-admin-java</description>
+
 	<properties>
 		<java.version>1.8</java.version>
+		<!-- 除了修改version还可以在properties中来修改依赖的版本号 -->
+		<!-- <mysql.version>8.0.21</mysql.version>  -->
 	</properties>
+
 	<dependencies>
 		<!-- spring-boot-starter -->
 		<dependency>
@@ -38,7 +42,8 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
-		<!-- mysql -->
+		<!-- mysql驱动 -->
+		<!-- mysql驱动注意点：( mysql驱动版本 ) 要和 ( mysql版本) 一致 -->
 		<!--- 利用mybatis操作mysql需要三个库 ( mysql + jdbc + mybatis ) -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -48,9 +53,16 @@
 		</dependency>
 
 		<!-- jdbc依赖，(Java Database Connectivity) java数据连接 -->
+		<!-- <dependency>-->
+		<!--   <groupId>org.springframework.boot</groupId>   -->
+		<!--   <artifactId>spring-boot-starter-jdbc</artifactId>   -->
+		<!-- </dependency> -->
+
+		<!-- spring-boot-starter-data-jdbc -->
+		<!-- 注意区分 ( spring-boot-starter-data-jdbc ) 和 ( spring-boot-starter-jdbc ) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 		</dependency>
 
 		<!-- mybatis -->
@@ -86,6 +98,8 @@
 			<version>1.2.57</version>
 		</dependency>
 
+		<!-- spring-boot-starter-test -->
+		<!-- 单元测试场景启动器 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

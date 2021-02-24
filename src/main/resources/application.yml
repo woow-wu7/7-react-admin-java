@@ -12,10 +12,18 @@ server:
 
 spring:
   datasource:
+    # 1. 只要装了 ( mysql驱动 ) 和 ( jdbc数据库连接池 )，并且在这里配置好 ( 数据库连接池相关的配置项 ) 就能连接数据库
+    # 2. mysql驱动 => mysql-connector-java
+    # 3. jdbc连接池 => spring-boot-starter-jdbc
+    # 4. 更进一步：还可以使用 ( Druid数据源 + MyBatis )
     url: jdbc:mysql://localhost:3306/7-react-admin-java?serverTimezone=GMT%2B8&useSSL=false
     username: root
     password: root
     dirver-class-name: com.mysql.cj.jdbc.Driver
+  jdbc:
+    template:
+      query-timeout: 10 # 10s没查出来就超时
+
   mvc:
     # 静态资源前缀
     # 值得注意的是前缀会导致 welcome静态文件夹的index.html失效

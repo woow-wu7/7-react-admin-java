@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,9 +47,11 @@ public class TestController {
 
     // 测试 request
     // 测试 @PathVariable
+    // 测试 @CookieValue
     // 测试 @RequestHeader => 对比 @RequestParam @RequestBody @RequestPart
+    // 测试 @RequestAttribute
     // 测试 @RequestParam
-    // 测试 @Cookie
+    // 测试 @RequestBody
     // 测试URL：http://localhost:7777/car/1/owner/woow_wu7?age=20&city=chongqing
     @GetMapping("/car/{id}/owner/{username}")
     public Void getPath(
@@ -91,6 +94,47 @@ public class TestController {
         map.put("low", low);
         map.put("brand", brand);
         return map;
+    }
+
+    // 用来测试默认的 SpringBoot 的错误处理
+    // src/main/resources/templates/error/404.html 5xx.html
+    @GetMapping("/error")
+    public Error getError() {
+        return new Error();
+    }
+
+    // 基本数据类型
+    @GetMapping("/baseData")
+    public static Map getLog() {
+        HashMap<Object, Object> map = new HashMap<>();
+        map.put("byte", Byte.SIZE);
+        map.put("minByte", Byte.MIN_VALUE);
+        map.put("maxByte", Byte.MAX_VALUE);
+        map.put("byteType", Byte.TYPE);
+        map.put("short", Short.SIZE);
+        map.put("minShort", Short.MIN_VALUE);
+        map.put("maxShort", Short.MAX_VALUE);
+        map.put("shortType", Short.TYPE);
+        map.put("int", Integer.SIZE);
+        map.put("minInt", Integer.MIN_VALUE);
+        map.put("maxInt", Integer.MAX_VALUE);
+        map.put("intType", Integer.TYPE);
+        map.put("long", Long.SIZE);
+        map.put("minLong", Long.MIN_VALUE);
+        map.put("maxLong", Long.MAX_VALUE);
+        map.put("longType", Long.TYPE);
+        final int i =128;
+        byte b = (byte)i;
+        System.out.println("0000000000000000000000");
+        System.out.println(b);
+        return map;
+    }
+
+    @GetMapping("/testArrayAndList")
+    public static Void testArrayAndList() {
+        List myList = new ArrayList();
+        ArrayList myList2 = new ArrayList();
+        return null;
     }
 }
 
