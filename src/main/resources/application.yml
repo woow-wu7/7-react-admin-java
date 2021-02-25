@@ -23,6 +23,28 @@ spring:
   jdbc:
     template:
       query-timeout: 10 # 10s没查出来就超时
+  # redis:
+    # remote
+    # 可以通过 (external libraries)/spring-boot-autoconfigure:2.4.2/data/redis/RedisAutoConfiguration/RedisProperties/url 来查看
+    # url = redis://user:password@example.com:6379
+    # host: r-bp1z4zrytbuyv7mkuzpd.redis.rds.aliyuncs.com
+    # port: 6379
+    # password: woow_wu7:ALy123456789
+    # client-type: Lettuce # 两种 ( Lettuce ) ( Jedis ) ，默认是 Lettuce
+    # lettuce:
+      # pool:
+        # max-active: 10 # 连接池的最大连接书
+        # min-idle: 5 # 最小空闲
+  redis:
+   # localhost
+   host: localhost
+   port: 6379
+   password: root
+   client-type: Lettuce # 两种 ( Lettuce ) ( Jedis ) ，默认是 Lettuce
+   lettuce:
+    pool:
+      max-active: 10 # 连接池的最大连接书
+      min-idle: 5 # 最小空闲
 
   mvc:
     # 静态资源前缀

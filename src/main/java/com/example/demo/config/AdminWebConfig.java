@@ -1,7 +1,8 @@
 package com.example.demo.config;
 
 import com.example.demo.interceptor.GlobalInterceptor;
-import com.example.demo.interceptor.LoginInterceptor;
+import com.example.demo.interceptor.RedisUrlCountInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -18,14 +19,24 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableConfigurationProperties
 public class AdminWebConfig implements WebMvcConfigurer {
 
+    // 这里之所以可以自动注入，是因为RedisUrlCountInterceptor类通过@Compoent注册到容器中了，非配置类
+    @Autowired
+    RedisUrlCountInterceptor redisUrlCountInterceptor;
+
     // @Override表示被标注的方法是一个重写方法
     // override 覆盖
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+
         registry.addInterceptor(new GlobalInterceptor())
                 .addPathPatterns("/**") // 拦截 => 拦截所有请求，包括静态资源
                 .excludePathPatterns("/", "/login", "css/**", "/fonts/**", "/images/**", "/js/**"); // 放行，放行了static文件夹下的所有静态资源
                 // 问题：如何能访问到 resources/static/images/8.jpg
                 // 回答：http://localhost:7777/images/8.jpg
+
+        registry.addInterceptor(redisUrlCountInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/", "/login", "css/**", "/fonts/**", "/images/**", "/js/**");
+
     }
 }
