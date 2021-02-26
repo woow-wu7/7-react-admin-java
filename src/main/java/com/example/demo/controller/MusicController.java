@@ -8,6 +8,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+
+/**
+ * @Controller 可以返回html页面
+ * @RestController 不能返回html页面，返回的内容就是return的内容
+ * 1. @RestController = @Controller + @ResponseBody
+ * 2. 如果一个controller，一些页面要返回html，一些又要返回return的内容，就需要用 @Controller注解controller返回html，然后在要返回的return的方法上加上@ResponseBody来返回return后面的内容
+ */
+
 //@Controller
 //@ResponseBody
 @RestController // 是上面两个注解的合集

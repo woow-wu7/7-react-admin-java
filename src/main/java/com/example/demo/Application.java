@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.bean.TestImportBean;
 import com.example.demo.bean.PetBean;
 import com.example.demo.bean.UserBean;
 import org.springframework.boot.SpringApplication;
@@ -38,7 +39,18 @@ public class Application {
 			System.out.println(s);
 		}
 
-		// 5
+		// 5. 测试@Import => 向IOC容器添加 ImportBean 组件
+		String[] beanNamesForType1 = run.getBeanNamesForType(TestImportBean.class);
+		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+		boolean b = run.containsBean("com.example.demo.bean.ImportBean"); // ImportBean
+		boolean b1 = run.containsBean("@ConditionalOnBean");
+		System.out.println("run.containsBean容器中是否有com.example.demo.bean.ImportBean组件：" + b);
+		System.out.println("run.containsBean容器中是否有@ConditionalOnBean件：" + b1);
+		for (String s : beanNamesForType1) {
+			System.out.println(s);
+		}
+
+		// 6
 		boolean haha = run.containsBean("haha");
 		boolean hehe = run.containsBean("hehe");
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");

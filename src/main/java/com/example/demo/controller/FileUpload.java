@@ -2,14 +2,23 @@ package com.example.demo.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
-@RestController
+/**
+ * @Controller 可以返回html页面
+ * @RestController 不能返回html页面，返回的内容就是return的内容
+ * 1. @RestController = @Controller + @ResponseBody
+ * 2. 如果一个controller，一些页面要返回html，一些又要返回return的内容，就需要用 @Controller注解controller返回html，然后在要返回的return的方法上加上@ResponseBody来返回return后面的内容
+ */
+//@RestController
+@Controller
 @Slf4j
 public class FileUpload {
 
@@ -35,7 +44,8 @@ public class FileUpload {
         log.info("上传的多文件{}", multiple);
         if (!single.isEmpty()) {
             String originalFilename = single.getOriginalFilename(); // 获取原始文件名
-            // 保存到 ( F/java-workspace/uploadFolder ) 文件夹
+            // 1. single.transferTo() 将single文件转存到...
+            // 2. 保存到 ( F/java-workspace/uploadFolder ) 文件夹
             single.transferTo(new File("F:\\Java-workspace\\uploadFolder\\" + originalFilename));
         }
         if (multiple.length > 0) {
@@ -58,6 +68,7 @@ public class FileUpload {
     // 2. 前端上传时 Upload 组件一定要设置 name 属性，因为 name 的值是和这里的 @RequestPart("前端name属性的值") 一一对应
     // 3. consume 是消费的意思
     @PostMapping(value = "/frontendUpload", consumes = "multipart/form-data")
+    @ResponseBody
     public String frontendUpload(
             // @RequestParam("file") MultipartFile avatars
             @RequestPart("file") MultipartFile avatars
