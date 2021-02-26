@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.bean.AppMessageBean;
+import com.example.demo.bean.TestConfigurationPropertiesAndComponentBean;
 import com.example.demo.bean.ValueTestBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class TestController {
 
     @Autowired
     ValueTestBean valueTestBean;
+
+    @Autowired
+    TestConfigurationPropertiesAndComponentBean testConfigurationPropertiesAndComponentBean;
 
     // (1)
     // 测试： @ConfigurationProperties 和 @Component 两个注解
@@ -135,6 +139,11 @@ public class TestController {
         List myList = new ArrayList();
         ArrayList myList2 = new ArrayList();
         return null;
+    }
+
+    @GetMapping("/@ConfigurationPropertiesAnd@Component")
+    public TestConfigurationPropertiesAndComponentBean testConfigurationPropertiesAndComponentBean() {
+        return testConfigurationPropertiesAndComponentBean;
     }
 }
 

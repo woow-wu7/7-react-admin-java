@@ -15,6 +15,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * 3. 指定拦截规则 【如果拦截所有，静态资源也会被拦截，可以用 excludePathPatterns 方法放行】
  */
 // @Configuration 用于定义 ( 配置类 )
+
+/**
+ * @EnableConfigurationProperties(Car.class)
+ * 1. 开启 Car 的配置绑定功能
+ * 2. 把这个 Car 组件自动注册到容器中
+  */
 @Configuration
 @EnableConfigurationProperties
 public class AdminWebConfig implements WebMvcConfigurer {

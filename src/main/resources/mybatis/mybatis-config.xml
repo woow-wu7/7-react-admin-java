@@ -2,5 +2,11 @@
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- 除了在这里mybatis全局配置文件中配置规则，也可以在application.yml中配置 -->
+<!-- 建议规则配置不要写在这里，而是写在application.yml中 -->
 <configuration>
+    <!-- <settings> -->
+        <!-- 开启驼峰命名，数据库是user_id，在MybatisTestBean中是userId -->
+        <!-- <setting name="mapUnderscoreToCamelCase" value="true"/> -->
+    <!-- </settings> -->
 </configuration>
