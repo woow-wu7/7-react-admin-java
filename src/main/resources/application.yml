@@ -40,7 +40,7 @@ spring:
    host: localhost
    port: 6379
    password: root
-   client-type: Lettuce # 两种 ( Lettuce ) ( Jedis ) ，默认是 Lettuce
+   client-type: Lettuce # 两种redis连接工厂 ( Lettuce ) ( Jedis ) ，默认是 Lettuce
    lettuce:
     pool:
       max-active: 10 # 连接池的最大连接书
@@ -65,12 +65,12 @@ spring:
 mybatis:
   # 配置 mybatis 规则
   # 默认的前置路径就是 resources 文件夹中
-  # config-location: classpath:mybatis/mybatis-config.xml # mybatis全局配置文件 ( 注意：如果有下面的 configuration 就要注释掉 config-location )
   # 一个单词
   #   camel 是骆驼的意思
   #   external 是外部的意思 // external libraries外部仓库
   #   assistant 助理 // spring assistant spring助理
   #   framework 框架 // springframework 框架
+  # config-location: classpath:mybatis/mybatis-config.xml # mybatis全局配置文件 ( 注意：如果有下面的 configuration 就要注释掉 config-location )
   mapper-locations: classpath:mybatis/mapper/*.xml # mybatis的sql映射文件，注意是 mapper-locations，有s
   configuration: # 配置规则，和 mybatis-config.xml 文件中配置是一样的效果，使用一种即可
     map-underscore-to-camel-case: true

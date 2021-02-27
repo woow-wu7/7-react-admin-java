@@ -81,10 +81,35 @@
 
 		<!-- jedis -->
 		<!-- SpringBoot默认使用的是Lettuce，要切换成jedis就必须安装该依赖 -->
+		<!-- redis的两种连接工厂， Lettuce 和 jedis -->
 		<dependency>
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 		</dependency>
+
+		<!-- Swagger -->
+		<!-- 自动生成 ( 接口文档 ) 及 ( 自测工具 ) -->
+		<!-- Swagger2 3.0 只需要 ( springfox-boot-starter ) 就可以了 -->
+		<!-- Swagger2 2.x 则需要 ( springfox-swagger2 ) 和 ( springfox-swagger-ui )-->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<!-- (1) springfox-swagger2 -->
+		<!--<dependency>-->
+		<!--<groupId>io.springfox</groupId>-->
+		<!--<artifactId>springfox-swagger2</artifactId>-->
+		<!--<version>3.0.0</version>-->
+		<!--</dependency>-->
+		<!-- (2) springfox-swagger-ui -->
+		<!--dependency>-->
+		<!--<groupId>io.springfox</groupId>-->
+		<!--<artifactId>springfox-swagger-ui</artifactId>-->
+		<!--<version>3.0.0</version>-->
+		<!--</dependency>-->
+
+
 
 
 		<!-- spring-boot-devtools 热更新 -->
