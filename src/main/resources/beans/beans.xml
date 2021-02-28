@@ -5,6 +5,7 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--这两个bean对象主要用于测试@ImportResource-->
+    <!--在config中使用到了@ImportResource,比如在config/PetConfig.java中-->
     <!--UserBean-->
     <bean id="haha" class="com.example.demo.bean.UserBean">
         <property name="name" value="zhangsan"></property>

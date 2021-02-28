@@ -26,9 +26,10 @@ import org.springframework.context.annotation.ImportResource;
 // 1. @ImportResource("classpath:beans/beans.xml")
 // 2. 参数：`classpath:beans/beans.xml` 表示的是 `配置组件beans.xml的文件路径`
 // 3. 具体：`beans.xml` 被放在了 `src/main/resources/beans/beans.xml` 中
+// 4. 作用： 导入xml中配置的组件
 @Import({UserBean.class, PetBean.class})
 @Configuration(proxyBeanMethods = true) // 配置类 => 相当于以前的xml配置文件，xml中有 beans bean 标签
-@ImportResource("classpath:beans/beans.xml")
+@ImportResource("classpath:beans/beans.xml") // 导入xml中配置的组件
 public class PetConfig {
 
     @Bean // 向容器中注册组件 => @Bean(pet02)这样写可以把注册到容器中的组件重新命名为pet02，而不是用方法名pet01

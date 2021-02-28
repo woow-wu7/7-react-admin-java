@@ -11,6 +11,7 @@
 - [[前端学java03-SpringBoot实战] lombok，日志，部署](https://juejin.cn/post/6930627377101979662)
 - [[前端学java04-SpringBoot实战] 静态资源 + 拦截器 + 前后端文件上传](https://juejin.cn/post/6932097247735709709)
 - [[前端学java05-SpringBoot实战] 常用注解 + redis实现统计功能](https://juejin.cn/post/6933224825200574478)
+- [[前端学java06-SpringBoot实战] 注入 + Swagger2 3.0 + 单元测试JUnit5](https://juejin.cn/post/6934274450514771982)
 
 ## (2) controller层，server层，mapper层，之间的关系
 - controller
@@ -22,8 +23,8 @@
   - 负责对数据库增删改查
   
 ## (3) 接口api说明
-- [development环境](http://localhost:7777/swagger-ui/index.html)
-- [production环境-暂未同步]()
+- [development环境 - 需要启动本地项目](http://localhost:7777/swagger-ui/index.html)
+- [production环境 - 暂未同步到线上]()
   
 ## (4) 部署
 - 依赖
