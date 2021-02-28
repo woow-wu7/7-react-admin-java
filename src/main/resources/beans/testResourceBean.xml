@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--手动注入-->
+    <!-- id: 表示组件在容器中的名字，随便取 -->
+    <!-- class: 表示bean对象的全路径 -->
+    <!-- property: 表示bean对象中的属性 -->
+    <!-- name: 表示具体的属性名 -->
+    <!-- ref: 表示容器中的组建名，即bean标签的中id属性 -->
+
+    <!--<bean id="userService" class="org.example.UserService">-->
+    <!--property name="userBean" ref="userBean"/>-->
+    <!--</bean>-->
+    <!--<bean id="userBean" class="org.example.UserBean"></bean>-->
+
+    <!--自动注入-->
+    <!--1. 自动注入配置需要添加 beans => xmlns:context="http://www.springframework.org/schema/context" -->
+    <!--2. 自动注入配置需要添加 beans => xsi:schemaLocation也要添加一些内容，如上 -->
+    <!--3. 自动注入配置需要添加 <context:annotation-config/> 如下 -->
+    <!--4. 注意自动注入和手动注入xml配置除了123还有一个区别：UserService中要使用userBean，自动注入不需要使用 property -->
+    <context:annotation-config/>
+
+    <bean id="testResourceBean" class="com.example.demo.bean.TestResourceBean"></bean>
+</beans>

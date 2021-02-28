@@ -12,6 +12,15 @@ import org.springframework.context.annotation.ImportResource;
 // 2. @Configuration 标注的类是配置类，配置类本身也是组件
 // 3. 外界无论对配置类中的这个注册方法调用多少次获取的都是之前容器中的单实例，前提是 @Configuration(proxyBeanMethods = true)
 // 4. 如果 @Configuration(proxyBeanMethods = false) 外界调用拿到的就不是 ( 代理对象 )，就 ( 不是单实例 ) 的了
+// 5. 流程：
+//  5-1. 注册：@Configuration + @Bean 向容器中注册组件
+//  5-2. 注入：@Autowired 注入类中使用
+// 6. @Autowired
+//  6-1. @AutoWired 的当前类必须由Spring容器托管，比如通过 @Compoennt @Controller @Service @Mapper @Repository 等标注的组件
+//  6-2. 不管是 public 还是 private 修饰的字段都可以自动注入
+//  6-3. @AutoWired 的组件必须已经在IOC容器中，不然会找不到报错
+//  6-4. 如果当前属性类型在容器中有个多个Bean,那么必须要通过属性名 或者 @Qualifier 指定Bean name
+
 
 // @Import
 // 1. @Import 和 @Bean 的作用类似，都是向容器中添加组
