@@ -110,8 +110,6 @@
 		<!--</dependency>-->
 
 
-
-
 		<!-- spring-boot-devtools 热更新 -->
 		<!-- 要实现热更新还需要设置两个地方，具体见我的博客 -->
 		<!-- 博客地址：https://juejin.cn/post/6929145638898794503 -->
@@ -139,7 +137,7 @@
 		</dependency>
 
 		<!-- spring-boot-starter-test -->
-		<!-- 单元测试场景启动器 -->
+		<!-- 单元测试 场景启动器 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

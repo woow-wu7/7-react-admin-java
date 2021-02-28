@@ -21,7 +21,11 @@
 - mapper ( DAO )    
   - 负责对数据库增删改查
   
-## (3) 部署
+## (3) 接口api说明
+- [development环境](http://localhost:7777/swagger-ui/index.html)
+- [production环境-暂未同步]()
+  
+## (4) 部署
 - 依赖
   - Git JDK Maven Mysql
 - 步骤
