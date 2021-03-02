@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 // model
@@ -14,6 +15,8 @@ public class MusicModel {
     public String name;
     public String album;
     public String singer;
+
+    @JsonFormat(pattern = "YYYY-MM-DD", timezone = "GMT+8")
     public String startTime;
     public String endTime;
 }

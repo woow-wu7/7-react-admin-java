@@ -6,9 +6,11 @@ import com.example.demo.bean.UserBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 // 主程序类，主配置类
 @SpringBootApplication
+@EnableTransactionManagement // 开启 SpringBoot 事务支持
 public class Application {
 
     public static void main(String[] args) {

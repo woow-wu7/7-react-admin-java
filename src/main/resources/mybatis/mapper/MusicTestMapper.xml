@@ -12,6 +12,8 @@
     <!-- 3. resultType  只用于 select -->
     <!-- 4. parameterType 用于 insert delete update-->
 
+    <!--注意：resultType是bean对象时，要写bean对象的全路径-->
+    <!--注意：resultType当查找的数据库返回的是一个List<Map>时，不能写List，而是Map，其他类型类似-->
     <select id="getMusicList" resultType="com.example.demo.bean.MusicTestBean">
         select * from music
         where

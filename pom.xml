@@ -121,7 +121,8 @@
 		</dependency>
 
 		<!-- lombok -->
-		<!-- 主要用于自动生成DTO,MODEL，bean对象等的 @Getter @Setter @ToString @EqualsAndHashCode @RequiredArgsConstructor-->
+		<!-- 主要用于自动生成DTO,MODEL，bean对象等的 @Getter @Setter @ToString @EqualsAndHashCode @RequiredArgsConstructor -->
+		<!-- Lombok 的 scope=provided，说明它只在编译阶段生效，不需要打入包中 -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -130,11 +131,11 @@
 		</dependency>
 
 		<!-- fastjson 用于参数类型转换 -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>1.2.57</version>
-		</dependency>
+		<!--<dependency>-->
+		<!--<groupId>com.alibaba</groupId>-->
+		<!--<artifactId>fastjson</artifactId>-->
+		<!--<version>1.2.57</version>-->
+		<!--</dependency>-->
 
 		<!-- spring-boot-starter-test -->
 		<!-- 单元测试 场景启动器 -->
