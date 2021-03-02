@@ -13,33 +13,29 @@ import java.util.concurrent.TimeUnit;
 @SpringBootTest
 @DisplayName("JUnit5功能测试")
 public class Junit5Test {
-    @Test
+
     @DisplayName("测试方法1 @DisplayName 注解")
     public void testDisplayName1() {
         System.out.println("@DisplayName1");
     }
 
-    @Test
     @DisplayName("测试方法2 @DisplayName 注解")
     public void testDisplayName2() {
         System.out.println("@DisplayName2");
     }
 
-    @Test
     @Disabled // 禁用
     @DisplayName("测试方法 @Disabled 注解")
     public void testDisabled() {
         System.out.println("@Disabled");
     }
 
-    @Test
     @RepeatedTest(5) // 重复测试5次
     @DisplayName("测试方法 @RepeatedTest 注解")
     public void testRepeatedTest() {
         System.out.println("@RepeatedTest -----5");
     }
 
-    @Test
     @Timeout(value = 1000, unit = TimeUnit.MILLISECONDS) // 超出时间报错
     public void testTimeout() throws InterruptedException {
         Thread.sleep(1200);

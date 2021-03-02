@@ -34,12 +34,14 @@ public class AdminWebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 
+        // 全局拦截器
         registry.addInterceptor(new GlobalInterceptor())
                 .addPathPatterns("/**") // 拦截 => 拦截所有请求，包括静态资源
                 .excludePathPatterns("/", "/login", "css/**", "/fonts/**", "/images/**", "/js/**"); // 放行，放行了static文件夹下的所有静态资源
                 // 问题：如何能访问到 resources/static/images/8.jpg
                 // 回答：http://localhost:7777/images/8.jpg
 
+        // redis => 实现访问地址次数统计+1 的拦截器
         registry.addInterceptor(redisUrlCountInterceptor)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/", "/login", "css/**", "/fonts/**", "/images/**", "/js/**");

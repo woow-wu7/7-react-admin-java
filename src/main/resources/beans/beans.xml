@@ -17,4 +17,35 @@
         <property name="name" value="dog"></property>
         <property name="color" value="red"></property>
     </bean>
+
+    <!--
+        Bean的作用域
+            singleton作用域 ( 单列作用域 )
+
+             1. Spring IOC容器在启动时，会将所有在 singleton 作用域中额bean对象实例化，并设置到单列缓存池中
+
+             2. lazy-init属性
+                    懒加载
+                    如果设置为true，表示懒加载，容器在启动时，不会实例化bean对象，在程序调用时才会实例化
+                    如果设置为false,表示不懒加载,容器启动则实例化
+                    默认值 false
+                    - false的好处？
+                        (1) 容器启动时就可以发现配置的配置问题
+                        (2) bean对象在启动时会设置在 ( 单列缓存池 ) 中，提高程序运行效率
+                    - 什么对象适合作为单列对象，即在IOC容器中的对象，哪些对象适合放在IOC中？
+                        (1) 不适合的有：无状态的对象，即不存在改变当前对象状态的成员变量
+                        (2) 适合的有：Controller Service Dao Mapper等
+             3. scope属性
+                    作用域
+                        - singleton单例作用域 => 放入单例缓存池
+                        - prototype原型作用域 => IOC容器启动时，不会将bean对象实例化到单例缓存池中
+    -->
+    <!--lazy-init懒加载-->
+    <!--<bean id="roleServiceSingleton" class="org.example.service.RoleServiceSingleton" lazy-init="false"></bean>-->
+
+    <!--单例作用域，在IOC缓存池中,SpringBoot中通过proxyBeanMethods=true-->
+    <!--<bean id="roleServiceSingleton" class="org.example.service.RoleServiceSingleton" scope="singleton"></bean>-->
+
+    <!--原型作用域，不在IOC缓存池中,SpringBoot中通过proxyBeanMethods=false-->
+    <!--<bean id="roleServicePrototype" class="org.example.service.RoleServicePrototype" scope="prototype"></bean>-->
 </beans>

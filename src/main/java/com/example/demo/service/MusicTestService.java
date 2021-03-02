@@ -48,12 +48,12 @@ public class MusicTestService {
 
     // 增
     public StatusBean addMusicList(Map<String, Object> body) {
-        Object startTime = body.get("startTime");
+        Object startTime = body.get("startTime"); // map.get
         Object endTime = body.get("endTime");
         Timestamp timestampStartTime = Timestamp.valueOf((String) startTime); // ( Timestamp ) 类型对应的是数据库中的 ( datetime ) 类型
-        Timestamp timestampEndTime = Timestamp.valueOf((String) endTime); // Timestamp.valueOf(string v) 将 ( string ) 转成 ( timestamp ) = ( datetime )
-        body.put("startTime", timestampStartTime); // 如果map中key存在，再执行map.put(key)就是更新key对应的value值
-        body.put("endTime", timestampEndTime);
+        Timestamp timestampEndTime = Timestamp.valueOf((String) endTime); // Timestamp.valueOf(string v) => 将 ( string ) 转成 ( timestamp ) = ( datetime )
+        body.put("startTime", timestampStartTime); // map.put
+        body.put("endTime", timestampEndTime); // 如果map中key存在，再执行map.put(key)就是更新key对应的value值
 
         Integer status = musicTestMapper.addMusicList(body);
 //        String formatStartTime = new SimpleDateFormat("YYYY-MM-DD HH:mm:ss").format(startTime);

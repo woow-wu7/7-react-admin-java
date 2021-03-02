@@ -10,6 +10,9 @@ import org.springframework.context.annotation.ImportResource;
 // @Configuration
 // 1. 对比参考 UserConfig 类
 // 2. @Configuration 标注的类是配置类，配置类本身也是组件
+// proxyBeanMethods
+//      - true 单例
+//      - false 不是单例
 // 3. 外界无论对配置类中的这个注册方法调用多少次获取的都是之前容器中的单实例，前提是 @Configuration(proxyBeanMethods = true)
 // 4. 如果 @Configuration(proxyBeanMethods = false) 外界调用拿到的就不是 ( 代理对象 )，就 ( 不是单实例 ) 的了
 // 5. 流程：

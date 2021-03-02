@@ -2,11 +2,15 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <!-- namespace 是mapper文件的全路径-->
 <mapper namespace="com.example.demo.mapper.MusicTestMapper">
     <!-- public MybatisTestBean getMybatisTest(int id); -->
     <!-- id 是方法名 -->
-    <!-- resultType 是方法的返回值类型，通过 copy path => copy reference 可以快速生成 -->
+    <!-- 1. ( resultType ) 是方法的 ( 返回值 ) 类型，通过 copy path => copy reference 可以快速生成 -->
+    <!-- 2. ( parameterType ) ( 参数 ) 类型-->
+    <!-- 3. resultType  只用于 select -->
+    <!-- 4. parameterType 用于 insert delete update-->
 
     <select id="getMusicList" resultType="com.example.demo.bean.MusicTestBean">
         select * from music
