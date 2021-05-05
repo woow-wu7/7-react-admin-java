@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  *
  * 4. proxyBeanMethods 代理bean的方法，默认值是true
  *    Full(proxyBeanMethods = true) 单例，可以用于 ( 组件依赖 )
- *    Lite(proxyBeanMethods = false)
+ *    Lite(proxyBeanMethods = false) 好处是让springboot跳过检查，提升速度
  */
 // 告诉 SpringBoot 这是一个 ( 配置类 )，等用于以前的配置文件
 // @Configuration 配置类
