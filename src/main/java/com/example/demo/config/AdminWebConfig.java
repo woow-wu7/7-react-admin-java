@@ -42,9 +42,9 @@ public class AdminWebConfig implements WebMvcConfigurer {
                 // 回答：http://localhost:7777/images/8.jpg
 
         // redis => 实现访问地址次数统计+1 的拦截器
-        registry.addInterceptor(redisUrlCountInterceptor)
-                .addPathPatterns("/**")
-                .excludePathPatterns("/", "/login", "css/**", "/fonts/**", "/images/**", "/js/**");
+//        registry.addInterceptor(redisUrlCountInterceptor)
+//                .addPathPatterns("/**")
+//                .excludePathPatterns("/", "/login", "css/**", "/fonts/**", "/images/**", "/js/**");
 
     }
 }

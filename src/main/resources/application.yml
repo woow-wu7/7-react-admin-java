@@ -35,16 +35,17 @@ spring:
       # pool:
         # max-active: 10 # 连接池的最大连接书
         # min-idle: 5 # 最小空闲
-  redis:
-   # localhost
-   host: localhost
-   port: 6379
-   password: root
-   client-type: Lettuce # 两种redis连接工厂 ( Lettuce ) ( Jedis ) ，默认是 Lettuce
-   lettuce:
-    pool:
-      max-active: 10 # 连接池的最大连接书
-      min-idle: 5 # 最小空闲
+#  redis:
+#   # localhost
+#   host: localhost
+#   port: 6379
+#   password: root
+#   client-type: Lettuce # 两种redis连接工厂 ( Lettuce ) ( Jedis ) ，默认是 Lettuce
+#   lettuce:
+#    pool:
+#      max-active: 10 # 连接池的最大连接书
+#      min-idle: 5 # 最小空闲
+
   mvc:
     # 静态资源前缀
     # 值得注意的是前缀会导致 welcome静态文件夹的index.html失效
@@ -56,10 +57,12 @@ spring:
     # 当指定了 ( 前缀resources )，同时又指定了 ( 静态资源自定义的目录7resources )
     # 访问：http://localhost:7777/resources/7.jpg 就可以访问到静态资源
     # static-locations: [classpath:/7resources/]
+
   servlet:
     multipart:
       max-file-size: 10MB
       max-request-size: 100MB
+
   jackson:
     date-format: YYYY-MM-DD HH=mm=ss # 全局时间格式化
     time-zone: GMT+8 # 时区
