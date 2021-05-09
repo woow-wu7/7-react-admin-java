@@ -23,9 +23,17 @@
         limit #{offset},#{pageSize}
     </select>
 
-    <select id="getAllMusicList" resultType="Long">
+
+    <!-- resultMap 设置返回值的类型和映射关系 -->
+    <!-- 教程 https://blog.csdn.net/magi1201/article/details/85342099 -->
+    <!--    <resultMap id="MusicMap" type="com.example.demo.map">-->
+    <!--    <id property="id" column="id"/>-->
+    <!--    <result property="nameOne" column="name"/>-->
+    <!--    </resultMap>-->
+    <select id="getAllMusicList" resultType="Long" resultMap="musicMap">
         select count(*) from music
     </select>
+
 
     <insert id="addMusicList" parameterType="Map">
         insert into music
