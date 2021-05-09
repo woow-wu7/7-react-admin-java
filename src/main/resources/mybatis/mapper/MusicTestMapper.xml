@@ -30,7 +30,7 @@
     <!--    <id property="id" column="id"/>-->
     <!--    <result property="nameOne" column="name"/>-->
     <!--    </resultMap>-->
-    <select id="getAllMusicList" resultType="Long" resultMap="musicMap">
+    <select id="getAllMusicList" resultType="Long">
         select count(*) from music
     </select>
 

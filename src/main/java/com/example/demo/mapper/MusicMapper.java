@@ -22,6 +22,11 @@ public interface MusicMapper {
     )
     public List<MusicModel> selectMusics(Integer pageSize, Integer offset, String searchKey); // 查找 - 分页 + 条件模糊查询
 
+    @Results(value = {
+        @Result(column = "name", property = "name"),
+        // 主要用来解决 ( 数据库中的column字段 ) 和 ( bean对象中的属性字段 ) 不一致的情况
+        // 比如：数据库中叫user_name，而bean对象中叫userName
+    })
     @Select("SELECT * from music limit #{offset},#{pageSize}")
     public List<MusicModel> selectMusicsOnlyPagination(Integer pageSize, Integer offset); // 查找 - 分页查询
 
