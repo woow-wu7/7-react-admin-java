@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -8,6 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 // 主程序类，主配置类
 @SpringBootApplication
 @EnableTransactionManagement // 开启 SpringBoot 事务支持
+@MapperScan("com.example.demo.mapper")
 public class Application {
 
     public static void main(String[] args) {
