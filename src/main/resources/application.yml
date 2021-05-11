@@ -50,13 +50,20 @@ spring:
     # 静态资源前缀
     # 值得注意的是前缀会导致 welcome静态文件夹的index.html失效
     # static-path-pattern: "/resources/**" # 增加静态资源前缀 resources
-    static-path-pattern: "/**"
+    ### 全路径设置：------------------------------------ spring.mvc.static-path-pattern=/resources/**
+    ### 访问静态资源：当前项目 + 前缀 + 静态资源
+    ### http://localhost:7777/resources/mm.jpg
+    ###### 指定自定义的静态资源目录 ( 默认静态文件夹路径 )
+    ###### ------------------------------------------- spring.resources.static-locations=[classpath:/7resources/]
+    ###### 看下面的 resources 设置
+    static-path-pattern: "/**" # ( /**表示根路径，所以根据静态资源的位置，我们可以用 http://localhost:7777/images/8.jpg 访问到静态资源 )
   # resources:
+    # static-locations: [classpath:/7resources/]
     # 指定子自定义的静态资源文件夹 ( 默认的静态资源文件夹路径 )
+    # 以上的设置 resources.static-location: [classpath:/7resource/] 表示 7resource/ 文件夹是静态资源文件夹
     # 1.
     # 当指定了 ( 前缀resources )，同时又指定了 ( 静态资源自定义的目录7resources )
     # 访问：http://localhost:7777/resources/7.jpg 就可以访问到静态资源
-    # static-locations: [classpath:/7resources/]
 
   servlet:
     multipart:

@@ -12,7 +12,7 @@
 - [[前端学java04-SpringBoot实战] 静态资源 + 拦截器 + 前后端文件上传](https://juejin.cn/post/6932097247735709709)
 - [[前端学java05-SpringBoot实战] 常用注解 + redis实现统计功能](https://juejin.cn/post/6933224825200574478)
 - [[前端学java06-SpringBoot实战] 注入 + Swagger2 3.0 + 单元测试JUnit5](https://juejin.cn/post/6934274450514771982)
-- [[前端学java07-SpringBoot实战] IOC扫描器 + 事务 + Jackson](https://juejin.cn/post/6935081135114289188)
+- [[前端学java08-SpringBoot实战总结1-7] 阶段性总结](https://juejin.cn/post/6960187616050282533)
 
 ## (2) controller层，server层，mapper层，之间的关系
 - controller
@@ -32,6 +32,12 @@
   - Git JDK Maven Mysql
 - 步骤
 - [具体步骤详见我的博客]()
+
+## (5) idea 相关插件
+- MyBatisX
+- Spring Assistant
+- Rainbow Brackets 彩虹括号
+- Codota AI Autocomplete
 
 
 
