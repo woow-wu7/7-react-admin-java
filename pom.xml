@@ -5,6 +5,10 @@
     <!-- pom模型版本 -->
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- 项目的打包类型 -->
+    <!-- pom jar war --><!-- 默认是打包成jar包 -->
+    <packaging>jar</packaging>
+
     <!-- parent -->
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -32,6 +36,7 @@
         <!-- maven方式跳过maven test, 等同$ mvn package -Dmaven.test.skip=true -->
         <!-- <maven.test.skip>true</maven.test.skip> -->
         <!-- surefire plugin方式跳过maven test， 等同$ mvn package -DskipTests -->
+        <!-- 一共有两种方式在打包时，跳过test，另一种是插件plugin中maven-surefire-plugin插件 -->
         <skipTests>true</skipTests>
     </properties>
 
