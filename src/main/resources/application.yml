@@ -71,7 +71,7 @@ spring:
       max-request-size: 100MB
 
   jackson:
-    date-format: YYYY-MM-DD HH=mm=ss # 全局时间格式化
+    date-format: YYYY-MM-dd HH:mm:ss # 全局时间格式化
     time-zone: GMT+8 # 时区
 
 mybatis:
@@ -87,6 +87,9 @@ mybatis:
   configuration: # 配置规则，和 mybatis-config.xml 文件中配置是一样的效果，使用一种即可，即 ( configuration ) 或者 ( config-location ) 二选一
     map-underscore-to-camel-case: true
 
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 开启mybatis-plus日志
 
 thymeleaf:
   # 配置 src/main/resources/templates/xxx.html 中的 html文件

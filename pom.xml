@@ -1,179 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<!-- parent -->
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.7-react-admin-java</groupId>
-	<artifactId>7-react-admin-java</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>7-react-admin-java</name>
-	<description>7-react-admin-java</description>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<properties>
-		<java.version>1.8</java.version>
-		<!-- 除了修改version还可以在properties中来修改依赖的版本号 -->
-		<!-- <mysql.version>8.0.21</mysql.version>  -->
-	</properties>
+    <!-- pom模型版本 -->
+    <modelVersion>4.0.0</modelVersion>
 
-	<dependencies>
-		<!-- spring-boot-starter -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
+    <!-- parent -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.2</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
-		<!-- spring-boot-starter-web -->
-		<!-- web场景启动器 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+    <!-- 项目信息 -->
+    <groupId>com.7-react-admin-java</groupId><!-- 项目唯一标识 -->
+    <artifactId>7-react-admin-java</artifactId><!-- 项目名 -->
+    <version>0.0.1-SNAPSHOT</version><!-- 版本 -->
+    <name>7-react-admin-java</name><!-- 项目的名称， Maven 产生的文档用 -->
+    <description>7-react-admin-java</description><!-- 项目的描述, Maven 产生的文档用 -->
 
-		<!-- spring-boot-starter-thymeleaf -->
-		<!-- 主要用于显示resources/templates中的html -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
+    <!-- 属性设置 -->
+    <properties>
+        <java.version>1.8</java.version><!-- jdK版本 -->
+        <!-- 除了修改version还可以在properties中来修改依赖的版本号 -->
+        <!-- <mysql.version>8.0.21</mysql.version>  -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding><!-- 编译字符编码为utf-8 -->
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding><!-- 输出字符编码为UTF-8  -->
 
-		<!-- mysql驱动 -->
-		<!-- mysql驱动注意点：( mysql驱动版本 ) 要和 ( mysql版本) 一致 -->
-		<!--- 利用mybatis操作mysql需要三个库 ( mysql + jdbc + mybatis ) -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.21</version>
-			<scope>runtime</scope>
-		</dependency>
+        <!-- 打包时跳过test检查 -->
+        <!-- maven方式跳过maven test, 等同$ mvn package -Dmaven.test.skip=true -->
+        <!-- <maven.test.skip>true</maven.test.skip> -->
+        <!-- surefire plugin方式跳过maven test， 等同$ mvn package -DskipTests -->
+        <skipTests>true</skipTests>
+    </properties>
 
-		<!-- jdbc依赖，(Java Database Connectivity) java数据连接 -->
-		<!-- <dependency>-->
-		<!--   <groupId>org.springframework.boot</groupId>   -->
-		<!--   <artifactId>spring-boot-starter-jdbc</artifactId>   -->
-		<!-- </dependency> -->
+    <!-- 依赖关系 -->
+    <dependencies>
+        <!-- spring-boot-starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
 
-		<!-- spring-boot-starter-data-jdbc -->
-		<!-- 注意区分 ( spring-boot-starter-data-jdbc ) 和 ( spring-boot-starter-jdbc ) -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jdbc</artifactId>
-		</dependency>
+        <!-- spring-boot-starter-web -->
+        <!-- web场景启动器 -->
+        <!-- 内置了 jackson -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
-		<!-- mybatis -->
-		<dependency>
-			<groupId>org.mybatis.spring.boot</groupId>
-			<artifactId>mybatis-spring-boot-starter</artifactId>
-			<version>2.1.3</version>
-		</dependency>
+        <!-- spring-boot-starter-thymeleaf -->
+        <!-- 主要用于显示resources/templates中的html -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
 
-		<!-- mybatis plus -->
-		<!-- mybatis plus包含了 ( mybatis-spring-boot-starter ) 和 ( spring-boot-starter-data-jdbc ) -->
-		<!-- 在 application.yml 文件中通过 mybatis-plus: xxx 对其进行定制配置 -->
-		<!-- SqlSessionFactory：自动在容器中配置好了，底层是容器中的默认数据源 -->
-		<!-- SqlSessionTemplate：自动在容器中配置好了 -->
-		<!-- @Mapper 标注也会被自动扫描-->
-		<dependency>
-			<groupId>com.baomidou</groupId>
-			<artifactId>mybatis-plus-boot-starter</artifactId>
-			<version>3.4.2</version>
-		</dependency>
+        <!-- mysql驱动 -->
+        <!-- mysql驱动注意点：( mysql驱动版本 ) 要和 ( mysql版本) 一致 -->
+        <!--- 利用mybatis操作mysql需要三个库 ( mysql + jdbc + mybatis ) -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.21</version>
+            <scope>runtime</scope>
+        </dependency>
 
+        <!-- jdbc依赖，(Java Database Connectivity) java数据连接 -->
+        <!-- <dependency>-->
+        <!--   <groupId>org.springframework.boot</groupId>   -->
+        <!--   <artifactId>spring-boot-starter-jdbc</artifactId>   -->
+        <!-- </dependency> -->
 
-		<!-- redis -->
-		<!-- framework 是框架，架构的意思 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
-		</dependency>
+        <!-- spring-boot-starter-data-jdbc -->
+        <!-- 注意区分 ( spring-boot-starter-data-jdbc ) 和 ( spring-boot-starter-jdbc ) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+        </dependency>
 
-		<!-- jedis -->
-		<!-- SpringBoot默认使用的是Lettuce，要切换成jedis就必须安装该依赖 -->
-		<!-- redis的两种连接工厂， Lettuce 和 jedis -->
-		<dependency>
-			<groupId>redis.clients</groupId>
-			<artifactId>jedis</artifactId>
-		</dependency>
+        <!-- mybatis -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.1.3</version>
+        </dependency>
 
-		<!-- Swagger -->
-		<!-- 自动生成 ( 接口文档 ) 及 ( 自测工具 ) -->
-		<!-- Swagger2 3.0 只需要 ( springfox-boot-starter ) 就可以了 -->
-		<!-- Swagger2 2.x 则需要 ( springfox-swagger2 ) 和 ( springfox-swagger-ui )-->
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-boot-starter</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-		<!-- (1) springfox-swagger2 -->
-		<!--<dependency>-->
-		<!--<groupId>io.springfox</groupId>-->
-		<!--<artifactId>springfox-swagger2</artifactId>-->
-		<!--<version>3.0.0</version>-->
-		<!--</dependency>-->
-		<!-- (2) springfox-swagger-ui -->
-		<!--dependency>-->
-		<!--<groupId>io.springfox</groupId>-->
-		<!--<artifactId>springfox-swagger-ui</artifactId>-->
-		<!--<version>3.0.0</version>-->
-		<!--</dependency>-->
+        <!-- mybatis plus -->
+        <!-- mybatis plus包含了 ( mybatis-spring-boot-starter ) 和 ( spring-boot-starter-data-jdbc ) -->
+        <!-- 在 application.yml 文件中通过 mybatis-plus: xxx 对其进行定制配置 -->
+        <!-- SqlSessionFactory：自动在容器中配置好了，底层是容器中的默认数据源 -->
+        <!-- SqlSessionTemplate：自动在容器中配置好了 -->
+        <!-- @Mapper 标注也会被自动扫描-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.2</version>
+        </dependency>
 
 
-		<!-- spring-boot-devtools 热更新 -->
-		<!-- 要实现热更新还需要设置两个地方，具体见我的博客 -->
-		<!-- 博客地址：https://juejin.cn/post/6929145638898794503 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
+        <!-- redis -->
+        <!-- framework 是框架，架构的意思 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
 
-		<!-- lombok -->
-		<!-- 主要用于自动生成DTO,MODEL，bean对象等的 @Getter @Setter @ToString @EqualsAndHashCode @RequiredArgsConstructor -->
-		<!-- Lombok 的 scope=provided，说明它只在编译阶段生效，不需要打入包中 -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.16</version>
-			<scope>provided</scope>
-		</dependency>
+        <!-- jedis -->
+        <!-- SpringBoot默认使用的是Lettuce，要切换成jedis就必须安装该依赖 -->
+        <!-- redis的两种连接工厂， Lettuce 和 jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
 
-		<!-- fastjson 用于参数类型转换 -->
-		<!--<dependency>-->
-		<!--<groupId>com.alibaba</groupId>-->
-		<!--<artifactId>fastjson</artifactId>-->
-		<!--<version>1.2.57</version>-->
-		<!--</dependency>-->
+        <!-- Swagger -->
+        <!-- 自动生成 ( 接口文档 ) 及 ( 自测工具 ) -->
+        <!-- Swagger2 3.0 只需要 ( springfox-boot-starter ) 就可以了 -->
+        <!-- Swagger2 2.x 则需要 ( springfox-swagger2 ) 和 ( springfox-swagger-ui )-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <!-- (1) springfox-swagger2 -->
+        <!--<dependency>-->
+        <!--<groupId>io.springfox</groupId>-->
+        <!--<artifactId>springfox-swagger2</artifactId>-->
+        <!--<version>3.0.0</version>-->
+        <!--</dependency>-->
+        <!-- (2) springfox-swagger-ui -->
+        <!--dependency>-->
+        <!--<groupId>io.springfox</groupId>-->
+        <!--<artifactId>springfox-swagger-ui</artifactId>-->
+        <!--<version>3.0.0</version>-->
+        <!--</dependency>-->
 
-		<!-- spring-boot-starter-test -->
-		<!-- 单元测试 场景启动器 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
+        <!-- spring-boot-devtools 热更新 -->
+        <!-- 要实现热更新还需要设置两个地方，具体见我的博客 -->
+        <!-- 博客地址：https://juejin.cn/post/6929145638898794503 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
 
-			<!-- maven-resources-plugin 打包成 fat jars 必须要用到的plugin -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version>
-			</plugin>
+        <!-- lombok -->
+        <!-- 主要用于自动生成DTO,MODEL，bean对象等的 @Getter @Setter @ToString @EqualsAndHashCode @RequiredArgsConstructor -->
+        <!-- Lombok 的 scope=provided，说明它只在编译阶段生效，不需要打入包中 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.16</version>
+            <scope>provided</scope>
+        </dependency>
 
-		</plugins>
-	</build>
+        <!-- fastjson 用于参数类型转换 -->
+        <!--<dependency>-->
+        <!--<groupId>com.alibaba</groupId>-->
+        <!--<artifactId>fastjson</artifactId>-->
+        <!--<version>1.2.57</version>-->
+        <!--</dependency>-->
+
+        <!-- 这里我们用了 Spring-boot-start-web 所以不需要在安装 pring-boot-starter-json 来使用 jackson -->
+
+        <!-- spring-boot-starter-test -->
+        <!-- 单元测试 场景启动器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- 编译 -->
+    <build>
+        <!-- 插件 -->
+        <plugins>
+            <!-- maven插件 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <!-- maven-resources-plugin 打包成 fat jars 必须要用到的plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <!-- 打包时跳过检查 -->
+                <!-- surefire 是万全，可靠的意思 -->
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>
