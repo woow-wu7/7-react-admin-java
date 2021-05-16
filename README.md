@@ -13,6 +13,7 @@
 - [[前端学java05-SpringBoot实战] 常用注解 + redis实现统计功能](https://juejin.cn/post/6933224825200574478)
 - [[前端学java06-SpringBoot实战] 注入 + Swagger2 3.0 + 单元测试JUnit5](https://juejin.cn/post/6934274450514771982)
 - [[前端学java08-SpringBoot实战总结1-7] 阶段性总结](https://juejin.cn/post/6960187616050282533)
+- [[前端学java09-SpringBoot实战] 多模块配置 + Mybatis-plus + 单多模块打包部署](https://juejin.cn/post/6962752749993721892)
 
 ## (2) controller层，server层，mapper层，之间的关系
 - controller
@@ -39,6 +40,9 @@
 - Rainbow Brackets 彩虹括号
 - Codota AI Autocomplete
 
+## (6) 多模块构建方式即打包部署，请参照
+- [[前端学java09-SpringBoot实战] 多模块配置 + Mybatis-plus + 单多模块打包部署](https://juejin.cn/post/6962752749993721892)
+- [多模块构建方式即打包部署 - github地址](https://github.com/woow-wu7/7-react-admin-java-pro)
 
 
 

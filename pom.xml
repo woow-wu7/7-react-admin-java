@@ -182,6 +182,16 @@
         </dependency>
     </dependencies>
 
+    <!-- dependencyManagement 只是声明依赖，并不导入到package，子模块需要显示的引入 -->
+    <!--    <dependencyManagement>-->
+    <!--        <dependencies>-->
+    <!--            <dependency>-->
+    <!--                <groupId></groupId>-->
+    <!--                <artifactId></artifactId>-->
+    <!--            </dependency>-->
+    <!--        </dependencies>-->
+    <!--    </dependencyManagement>-->
+
     <!-- 编译 -->
     <build>
         <!-- 插件 -->
