@@ -3,7 +3,7 @@
 `用于给 7-react-admin-ts 项目提供server`  
 
 ## (1) 技术栈
-`SpringBoot + Mybatis + mysql + lombok + devTools`
+`SpringBoot + Mybatis + Mybatis-plus + Mysql + Lombok + Jackson + DevTools + thymeleaf`
 
 ## (2) 项目过程记录
 - [[前端学java01-SpringBoot实战] 环境配置和HelloWorld服务](https://juejin.cn/post/6927306093970325517)
