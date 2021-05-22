@@ -2,7 +2,7 @@
 `第一个java服务端项目`  
 `用于给 7-react-admin-ts 项目提供server`  
 
-# [7-react-admin-java-pro](https://github.com/woow-wu7/7-react-admin-java-pro)
+### [pro] [7-react-admin-java-pro](https://github.com/woow-wu7/7-react-admin-java-pro)
 
 ## (1) 技术栈
 `SpringBoot + Mybatis + Mybatis-plus + Mysql + Lombok + Jackson + Validation + Swagger + DevTools + Thymeleaf`
