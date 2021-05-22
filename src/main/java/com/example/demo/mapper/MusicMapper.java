@@ -38,6 +38,12 @@ public interface MusicMapper {
 
     @Update("update music set name=#{name},album=#{album},singer=#{singer},startTime=#{startTime},endTime=#{endTime} where id=#{id}")
     public int editMusic(String name, String album, String singer, Timestamp startTime, Timestamp endTime, int id);
+    // 下面这样的方式更省心，使用 @Param
+    //    @Update("update music set " +
+    //            " name=#{musicBean.name}, album=#{musicBean.album}, singer=#{musicBean.singer}, startTime=#{musicBean.startTime}, endTime=#{musicBean.endTime} where " +
+    //            " id=#{id}")
+    //    Integer update(@Param("id") Integer id, @Param("musicBean") MusicBean musicBean);
+
 
     @Delete("delete from music where id=#{id}")
     public int deleteMusic(int id); // 删除
