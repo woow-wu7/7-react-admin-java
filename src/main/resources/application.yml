@@ -64,15 +64,19 @@ spring:
     # 1.
     # 当指定了 ( 前缀resources )，同时又指定了 ( 静态资源自定义的目录7resources )
     # 访问：http://localhost:7777/resources/7.jpg 就可以访问到静态资源
-
   servlet:
     multipart:
       max-file-size: 10MB
       max-request-size: 100MB
-
   jackson:
     date-format: YYYY-MM-dd HH:mm:ss # 全局时间格式化
     time-zone: GMT+8 # 时区
+# 除了在这里配置，还可以配置在java内存中，请查看config文件夹中的 SecurityConfig
+#  security:
+#    user:
+#      name: woow_wu7
+#      password: 123
+
 
 mybatis:
   # 配置 mybatis 规则
@@ -83,7 +87,7 @@ mybatis:
   #   assistant 助理 // spring assistant spring助理
   #   framework 框架 // springframework 框架
   # config-location: classpath:mybatis/mybatis-config.xml # mybatis全局配置文件 ( 注意：如果有下面的 configuration 就要注释掉 config-location )
-  mapper-locations: classpath:mybatis/mapper/*.xml # mybatis的sql映射文件，注意是 mapper-locations，有s
+  mapper-locations: classpath:mapper/*.xml # mybatis的sql映射文件，注意是 mapper-locations，有s
   configuration: # 配置规则，和 mybatis-config.xml 文件中配置是一样的效果，使用一种即可，即 ( configuration ) 或者 ( config-location ) 二选一
     map-underscore-to-camel-case: true
 

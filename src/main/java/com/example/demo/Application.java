@@ -7,6 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 // 主程序类，主配置类
+// @SpringBootApplication(exclude = {SecurityAutoConfiguration.class}) // 排除security配置，让spring-security不起作用
 @SpringBootApplication
 @EnableTransactionManagement // 开启 SpringBoot 事务支持
 @MapperScan("com.example.demo.mapper") // 指定mapper的目录，将自动扫描，则不用在每个类上都加@Mapper

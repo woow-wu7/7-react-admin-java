@@ -18,6 +18,7 @@
 - [[前端学java08-SpringBoot实战总结1-7] 阶段性总结](https://juejin.cn/post/6960187616050282533)
 - [[前端学java09-SpringBoot实战] 多模块配置 + Mybatis-plus + 单多模块打包部署](https://juejin.cn/post/6962752749993721892)
 - [[前端学java010-SpringBoot实战] bean赋值转换  + 参数校验 + 全局异常处理](https://juejin.cn/post/6965404539298168839)
+- [[前端学java11-SpringSecurity] 配置 + 内存 + 数据库 = 三种方式实现RBAC](https://juejin.cn/post/6968003860522598436)
 
 
 

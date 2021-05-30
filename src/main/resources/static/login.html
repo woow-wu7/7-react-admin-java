@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+<fieldset id="f1">
+    <legend>用户登录</legend>
+    <form action="/doLogin" method="post" id="frmlogin">
+        <div>
+            <label for="txtusername">用户名：</label>
+            <input type="text" id="txtusername" name="username"/>
+        </div>
+        <div>
+            <label for="txtpassword">密&nbsp;&nbsp;码:</label>
+            <input type="password" id="txtpassword" name="password"/>
+        </div>
+        <div>
+            <input type="submit" value="确定" id="btnok"/>
+            <input type="reset" value="取消" id="btnEsc">
+        </div>
+    </form>
+</fieldset>
+<script type="text/javascript" src="login.js">
+</script>
+</body>
+</html>
