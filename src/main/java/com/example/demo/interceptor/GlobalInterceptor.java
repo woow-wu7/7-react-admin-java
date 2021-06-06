@@ -25,7 +25,7 @@ public class GlobalInterceptor implements HandlerInterceptor {
     // 目标方法执行之前执行
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        log.info("preHandle拦截器 - 拦截的路径是{}", request.getRequestURI());
+//        log.info("preHandle拦截器 - 拦截的路径是{}", request.getRequestURI());
         return true; // true表示放行
         // return false; // false表示拦截不放行
     }
@@ -33,7 +33,7 @@ public class GlobalInterceptor implements HandlerInterceptor {
     // 目标方法执行完成之后执行
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        log.info("postHandle拦截器 - ModelAndView", modelAndView);
+//        log.info("postHandle拦截器 - ModelAndView", modelAndView);
     }
 
     // 页面渲染以后执行
@@ -41,6 +41,6 @@ public class GlobalInterceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         // completion 是完成的意思
         // override 是覆盖 重写的意思
-        log.info("afterCompletion拦截器", ex);
+//        log.info("afterCompletion拦截器", ex);
     }
 }

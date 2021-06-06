@@ -71,7 +71,7 @@ spring:
   jackson:
     date-format: YYYY-MM-dd HH:mm:ss # 全局时间格式化
     time-zone: GMT+8 # 时区
-# 除了在这里配置，还可以配置在java内存中，请查看config文件夹中的 SecurityConfig
+## 除了在这里配置，还可以配置在java内存中，请查看config文件夹中的 SecurityConfig
 #  security:
 #    user:
 #      name: woow_wu7

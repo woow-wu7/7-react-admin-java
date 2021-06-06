@@ -1,22 +1,35 @@
 package com.example.demo.config;
 
-import com.example.demo.service.MyUserDetailsService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.PrintWriter;
 
+@Configuration
+@EnableWebSecurity // 启动 spring-security 安全框架
+@EnableGlobalMethodSecurity(prePostEnabled = true) // 启用方法级别的角色认证
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    MyUserDetailsService myUserDetailsService;
+//    @Autowired
+//    MyUserDetailsService myUserDetailsService;
 
 
     @Bean // @Bean将该对象放入容器中
@@ -29,26 +42,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         PasswordEncoder pe = passwordEncoder(); // 调用下面定义的方法，返回PasswordEncoder类型
-        auth.userDetailsService(myUserDetailsService)
-                .passwordEncoder(pe); // BCrypt加密
 
-        //        auth.inMemoryAuthentication()
-        //                .withUser("admin") // 用户名
-        //                .password(pe.encode("admin")) // 密码，加密
-        //                .roles("admin") // 角色
-        //                .and()
-        //                .withUser("guest")
-        //                .password("guest")
-        //                .roles("guest");
+//        auth.userDetailsService(myUserDetailsService)
+//                .passwordEncoder(pe); // BCrypt加密
+
+        auth.inMemoryAuthentication()
+                .withUser("admin") // 用户名
+                .password(pe.encode("admin")) // 密码，加密
+                .roles("admin") // 角色
+                .and()
+                .withUser("guest")
+                .password("guest")
+                .roles("guest");
     }
 
     // 除了上面的方法可以设置用户名和密码外，还可以用下面的方式
     // - 通过重写 ( userDetailsService ) 方法实现
-    //    protected UserDetailsService userDetailsService() {
-    //        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-    //        manager.createUser(User.withUsername("admin2").password("admin2").roles("admin").build());
-    //        return manager;
-    //    }
+    protected UserDetailsService userDetailsService() {
+        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+        manager.createUser(User.withUsername("admin2").password("admin2").roles("admin").build());
+        return manager;
+    }
 
 
     @Override
@@ -62,23 +76,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/security-admin/**").hasAnyRole("admin") //《》这个controller需要 admin 角色
-                .antMatchers("/security-common/**").hasAnyRole("common") //《》这个controller需要 guest 角色
+                .antMatchers("/security-guest/**").hasAnyRole("guest") //《》这个controller需要 guest 角色
+                //.antMatchers("/login.html").permitAll() // ---------------------《》 放行登陆页面
                 .anyRequest().authenticated() // 表示除了上面两个是 ( 角色级别的认证 ) 外，其他所有请求都要 ( 认证级别 ) 后才能访问，即只有上面两个需要登陆和对应的角色，其他都只需要登陆
                 .and()
                 .formLogin() //----------------------------------【】
                 .loginPage("/login.html") // ---------------【】登陆页面 ( 如果不设置下面的loginProcessingUrl =>  登陆页面 和 登陆接口 都是 login )
                 .loginProcessingUrl("/doLogin")
                 //   .loginProcessingUrl("/security-test") //----【】提交username和password的url
-                //   .usernameParameter("username") // ----------【】自定义html表单中的input的name属性
-                //   .passwordParameter("password") // ----------【】自定义html表单中的input的name属性
-                //   .successForwardUrl("/musics") // -----------【】【服务端跳转】登陆成功的跳转地址，不管是从什么地方跳转到登陆页面的，登陆成功后，都是跳到这里指定的路由
-                //   .defaultSuccessUrl("/musics") // -----------【】【重定向】登陆成功后，会回到之前的页面
-                .successHandler((req, resp, authentication) -> { // =============== 登陆成功的回调函数
-                    resp.setContentType("application/json;charset=utf-8");
-                    PrintWriter writer = resp.getWriter();
-                    writer.write(new ObjectMapper().writeValueAsString(authentication.getPrincipal()));
-                    writer.flush();
-                    writer.close();
+                .usernameParameter("username") // ----------【】自定义html表单中的input的name属性
+                .passwordParameter("password") // ----------【】自定义html表单中的input的name属性
+                .successForwardUrl("/musics") // -----------【】【服务端跳转】登陆成功的跳转地址，不管是从什么地方跳转到登陆页面的，登陆成功后，都是跳到这里指定的路由
+                .defaultSuccessUrl("/musics") // -----------【】【重定向】登陆成功后，会回到之前的页面
+                //                .successHandler((req, resp, authentication) -> { // =============== 登陆成功的回调函数
+                //                    resp.setContentType("application/json;charset=utf-8");
+                //                    PrintWriter writer = resp.getWriter();
+                //                    writer.write(new ObjectMapper().writeValueAsString(authentication.getPrincipal()));
+                //                    writer.flush();
+                //                    writer.close();
+                //                })
+                .successHandler(new AuthenticationSuccessHandler() { // 登陆成功后的逻辑处理
+                    @Override
+                    public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
+                        httpServletResponse.sendRedirect("/musics"); // 登陆成功后跳转 /musics
+                    }
                 })
                 .failureHandler((req, resp, exception) -> { // ===================== 登陆失败的回调函数
                     resp.setContentType("application/json;charset=utf-8");

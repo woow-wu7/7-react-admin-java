@@ -1,29 +1,41 @@
-package com.example.demo.config;
-
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
-/****
- *
- * @EnableGlobalMethodSecurity
- *  作用：启用方法级别的角色认证
- *  参数: ( prePostEnabled=true ) => 表示可以使用 ( @PreAuthorize ) 注解 和 ( @PostAuthorize )
- *
- * **/
-@Configuration
-@EnableWebSecurity // 启动 spring-security 安全框架
-@EnableGlobalMethodSecurity(prePostEnabled = true) // 启用方法级别的角色认证
-class SecurityStaticConfig extends WebSecurityConfigurerAdapter { // WebSecurityConfigurerAdapter 用来控制安全管理的内容
-
+//package com.example.demo.config;
+//
+//import com.fasterxml.jackson.databind.ObjectMapper;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+//import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+//import org.springframework.security.config.annotation.web.builders.WebSecurity;
+//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+//import org.springframework.security.core.userdetails.User;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+//
+//import java.io.PrintWriter;
+//
+///****
+// *
+// * @EnableGlobalMethodSecurity
+// *  作用：启用方法级别的角色认证
+// *  参数: ( prePostEnabled=true ) => 表示可以使用 ( @PreAuthorize ) 注解 和 ( @PostAuthorize )
+// *
+// * **/
+//@Configuration
+//@EnableWebSecurity // 启动 spring-security 安全框架
+//@EnableGlobalMethodSecurity(prePostEnabled = true) // 启用方法级别的角色认证
+//class SecurityStaticConfig extends WebSecurityConfigurerAdapter { // WebSecurityConfigurerAdapter 用来控制安全管理的内容
+//
 //    @Bean // @Bean将该对象放入容器中
 //    public PasswordEncoder passwordEncoder() {
 //        return new BCryptPasswordEncoder();
 //    }
-
-
-    // 自定义认证配置
+//
+//
+//    // 自定义认证配置
 //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        PasswordEncoder pe = passwordEncoder(); // 调用下面定义的方法，返回PasswordEncoder类型
@@ -36,23 +48,23 @@ class SecurityStaticConfig extends WebSecurityConfigurerAdapter { // WebSecurity
 //                .password("guest")
 //                .roles("guest");
 //    }
-
-    // 除了上面的方法可以设置用户名和密码外，还可以用下面的方式
-    // - 通过重写 ( userDetailsService ) 方法实现
+//
+//    // 除了上面的方法可以设置用户名和密码外，还可以用下面的方式
+//    // - 通过重写 ( userDetailsService ) 方法实现
 //    protected UserDetailsService userDetailsService() {
 //        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
 //        manager.createUser(User.withUsername("admin2").password("admin2").roles("admin").build());
 //        return manager;
 //    }
-
-
+//
+//
 //    @Override
 //    public void configure(WebSecurity web) throws Exception {
 //        // 让 spring-security 放行 js css images 文件，不进行拦截
 //        web.ignoring().antMatchers("/js/**", "/css/**", "/images/**");
 //    }
-
-
+//
+//
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //        http.authorizeRequests()
@@ -90,4 +102,4 @@ class SecurityStaticConfig extends WebSecurityConfigurerAdapter { // WebSecurity
 //                .and()
 //                .csrf().disable(); // 关掉csrf
 //    }
-}
+//}

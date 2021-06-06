@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.service.TestSecurityService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class TestSecurityController {
 
-    @Autowired
-    TestSecurityService testSecurityService;
+//    @Autowired
+//    TestSecurityService testSecurityService;
 
 //    @ResponseBody
 //    @GetMapping("/security-test")
@@ -42,9 +40,9 @@ public class TestSecurityController {
         return "admin";
     }
 
-    @GetMapping("/security-common") // ------- 需要guest角色权限才能访问
+    @GetMapping("/security-guest") // ------- 需要guest角色权限才能访问
     public String getGuest() {
-        return "common";
+        return "guest";
     }
 
     @GetMapping("/security-admin-other-method")
