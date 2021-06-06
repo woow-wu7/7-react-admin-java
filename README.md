@@ -15,11 +15,11 @@
 - [[前端学java05-SpringBoot实战] 常用注解 + redis实现统计功能](https://juejin.cn/post/6933224825200574478)
 - [[前端学java06-SpringBoot实战] 注入 + Swagger2 3.0 + 单元测试JUnit5](https://juejin.cn/post/6934274450514771982)
 - [[前端学java07-SpringBoot实战] IOC扫描器 + 事务 + Jackson](https://juejin.cn/post/6935081135114289188)
-- [[前端学java08-SpringBoot实战总结1-7] 阶段性总结](https://juejin.cn/post/6960187616050282533)
+- [[前端学java08-SpringBoot实战总结1-7] 阶段性总结](https://juejin.cn/post/6960187616050282533) 
 - [[前端学java09-SpringBoot实战] 多模块配置 + Mybatis-plus + 单多模块打包部署](https://juejin.cn/post/6962752749993721892)
-- [[前端学java010-SpringBoot实战] bean赋值转换  + 参数校验 + 全局异常处理](https://juejin.cn/post/6965404539298168839)
-- [[前端学java11-SpringSecurity] 配置 + 内存 + 数据库 = 三种方式实现RBAC](https://juejin.cn/post/6968003860522598436)
-
+- [[前端学java010-SpringBoot实战] bean赋值转换  + 参数校验 + 全局异常处理](https://juejin.cn/post/6965404539298168839)  
+- [[前端学java11-SpringSecurity] 配置 + 内存 + 数据库 = 三种方式实现RBAC](https://juejin.cn/post/6968003860522598436)  
+- [[前端学java12-SpringSecurity] JWT](https://juejin.cn/post/6970598940479586334)
 
 
 ## (2) controller层，server层，mapper层，之间的关系
