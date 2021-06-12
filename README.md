@@ -3,7 +3,7 @@
 `用于给 7-react-admin-ts 项目提供server`  
 
 ### [pro] [7-react-admin-java-pro](https://github.com/woow-wu7/7-react-admin-java-pro)
-
+### [cloud] [7-spring-cloud](https://github.com/woow-wu7/7-spring-cloud)
 ## (1) 技术栈
 `SpringBoot + Mybatis + Mybatis-plus + Mysql + Lombok + Jackson + Validation + Swagger + DevTools + Thymeleaf`
 
