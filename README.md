@@ -20,7 +20,7 @@
 - [[前端学java010-SpringBoot实战] bean赋值转换  + 参数校验 + 全局异常处理](https://juejin.cn/post/6965404539298168839)  
 - [[前端学java11-SpringSecurity] 配置 + 内存 + 数据库 = 三种方式实现RBAC](https://juejin.cn/post/6968003860522598436)  
 - [[前端学java12-SpringSecurity] JWT](https://juejin.cn/post/6970598940479586334)
-
+- [[前端学java13-SpringCloud] Eureka + RestTemplate + Zuul + Ribbon](https://juejin.cn/post/6973100621205520392)
 
 ## (2) controller层，server层，mapper层，之间的关系
 - controller
