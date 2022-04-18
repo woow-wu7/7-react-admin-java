@@ -4,6 +4,8 @@
 
 ### [pro] [7-react-admin-java-pro](https://github.com/woow-wu7/7-react-admin-java-pro)
 ### [cloud] [7-spring-cloud](https://github.com/woow-wu7/7-spring-cloud)
+### [复习专用] [7-java-server](https://github.com/woow-wu7/7-java-server)
+
 ## (1) 技术栈
 `SpringBoot + Mybatis + Mybatis-plus + Mysql + Lombok + Jackson + Validation + Swagger + DevTools + Thymeleaf`
 
